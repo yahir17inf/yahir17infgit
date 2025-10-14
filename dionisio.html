@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dionisio de Herrera — CEMNG</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CSS de esta página -->
+  <link rel="stylesheet" href="dionisio.css">
+</head>
+<body>
+
+  <!-- Fondo animado -->
+  <div class="bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="noise"></div>
+  </div>
+
+  <!-- Header: Inicio + Marca -->
+  <header class="sub-header">
+    <a href="index.html" class="home-btn">🏠 Inicio</a>
+    <div class="brand">
+      <img src="logo (2).png" alt="Logo CEMNG">
+      <span class="brand-name">CEMNG • Instituto Dionisio de Herrera</span>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="hero-title">Dionisio de Herrera</h1>
+    <p class="hero-sub">Prócer hondureño, jurista y estadista — primer Jefe de Estado de Honduras.</p>
+  </section>
+
+  <main class="container">
+
+    <!-- Resumen biográfico -->
+    <section class="card reveal">
+      <h2>Biografía</h2>
+      <p>
+        <strong>José Dionisio de la Trinidad de Herrera y Díaz del Valle</strong> nació el <b>9 de octubre de 1781</b> en
+        <b>Choluteca, Honduras</b>, y falleció el <b>13 de junio de 1850</b> en San Vicente, El Salvador.
+        Se formó como abogado en la <em>Universidad de San Carlos de Guatemala</em>, donde abrazó ideas ilustradas y liberales.
+        A su retorno, promovió círculos intelectuales y el pensamiento progresista en Tegucigalpa.
+      </p>
+    </section>
+
+    <!-- Línea de tiempo -->
+    <section class="card reveal">
+      <h2>Línea de Tiempo</h2>
+      <ol class="timeline">
+        <li>
+          <span class="t-year">1781</span>
+          Nace en Choluteca, Honduras.
+        </li>
+        <li>
+          <span class="t-year">1810–1820</span>
+          Estudios y práctica jurídica; difusión de ideas liberales.
+        </li>
+        <li>
+          <span class="t-year">1824</span>
+          Elegido <b>primer Jefe de Estado de Honduras</b>.
+        </li>
+        <li>
+          <span class="t-year">1825</span>
+          Promulga la <b>primera Constitución de Honduras</b> y la división territorial.
+        </li>
+        <li>
+          <span class="t-year">1827–1829</span>
+          Golpe de Estado; prisión y posterior liberación.
+        </li>
+        <li>
+          <span class="t-year">1830–1833</span>
+          Jefe Supremo del Estado de Nicaragua.
+        </li>
+        <li>
+          <span class="t-year">1850</span>
+          Fallece en San Vicente, El Salvador.
+        </li>
+      </ol>
+    </section>
+
+    <!-- Logros -->
+    <section class="card reveal">
+      <h2>Logros Destacados</h2>
+      <ul class="pretty">
+        <li>Redacción y promulgación de la <b>Constitución de 1825</b> en Honduras.</li>
+        <li>Impulso a una <b>administración civil y constitucional</b> del Estado.</li>
+        <li>Implementación de la <b>primera división territorial</b> de Honduras.</li>
+        <li>Defensa de principios <b>liberales, educativos y ciudadanos</b>.</li>
+      </ul>
+    </section>
+
+    <!-- Conflictos y exilio -->
+    <section class="card reveal">
+      <h2>Conflictos y Exilio</h2>
+      <p>
+        Su ideología liberal generó tensiones con sectores conservadores. En <b>1827</b> fue depuesto y
+        remitido a prisión en Guatemala, hasta su liberación en <b>1829</b>. Más tarde ejerció como Jefe Supremo de
+        Nicaragua y, tras su retiro, se dedicó a la enseñanza.
+      </p>
+    </section>
+
+    <!-- Legado -->
+    <section class="card reveal">
+      <h2>Legado</h2>
+      <p>
+        Considerado <b>prócer nacional</b>, su legado institucional y constitucional sentó bases para el
+        desarrollo del Estado hondureño. Su figura inspira la construcción de una sociedad más justa y democrática.
+      </p>
+      <div class="chips">
+        <span class="chip">Constitucionalismo</span>
+        <span class="chip">Educación</span>
+        <span class="chip">Civismo</span>
+        <span class="chip">Liderazgo</span>
+      </div>
+    </section>
+
+    <!-- Datos rápidos -->
+    <section class="card reveal">
+      <h2>Datos Rápidos</h2>
+      <div class="grid facts">
+        <div class="fact">
+          <div class="k">Nacimiento</div>
+          <div class="v">9 oct 1781 — Choluteca</div>
+        </div>
+        <div class="fact">
+          <div class="k">Fallecimiento</div>
+          <div class="v">13 jun 1850 — San Vicente</div>
+        </div>
+        <div class="fact">
+          <div class="k">Formación</div>
+          <div class="v">Derecho — USAC (Guatemala)</div>
+        </div>
+        <div class="fact">
+          <div class="k">Cargos</div>
+          <div class="v">Jefe de Estado (HN, 1824); Jefe Supremo (NI, 1830–1833)</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <span>CEMNG Dionisio de Herrera</span>
+  </footer>
+
+  <!-- Reveal on scroll -->
+  <script>
+    const items = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold: .12});
+    items.forEach(i=> io.observe(i));
+  </script>
+</body>
+</html>

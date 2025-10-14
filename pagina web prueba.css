@@ -1,0 +1,84 @@
+<style>
+    :root{ --fg:#0a0a0a; --bg:#ffffff; --accent:#c8102e; --ink:#111; --speed: 2.8s; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:Inter, system-ui, Segoe UI, Roboto, Arial; color:var(--fg); background:var(--bg);}    
+
+    .bg{position:fixed; inset:0; z-index:0; overflow:hidden; background:
+      radial-gradient(1000px 480px at 12% -8%, rgba(200,16,46,.14) 0%, transparent 60%),
+      radial-gradient(900px 520px at 110% 8%, rgba(0,0,0,.16) 0%, transparent 60%),
+      var(--bg);
+    }
+
+    .topbar{position:fixed; right:16px; top:16px; display:flex; gap:8px; z-index:5; opacity:0; pointer-events:none; transform:translateY(8px)}
+    .loaded .topbar{opacity:1; pointer-events:auto; transform:translateY(0); transition:opacity .5s ease .05s, transform .5s ease .05s}
+    .topbar a{font-weight:700; color:var(--ink); text-decoration:none; border:2px solid var(--accent); border-radius:999px; padding:8px 12px; background:#fff; transition:.25s}
+    .topbar a:hover{background:var(--accent); color:#fff}
+
+    /* ===== HERO (contenido final) ===== */
+    .hero{min-height:100svh; display:grid; place-items:center; padding:120px 20px 56px; position:relative; z-index:1; opacity:0; pointer-events:none; transform:translateY(8px)}
+    .loaded .hero{opacity:1; pointer-events:auto; transform:translateY(0); transition:opacity .5s ease .05s, transform .5s ease .05s}
+    .hero-inner{width:min(1120px, 92vw); display:grid; justify-items:center; text-align:center; gap:22px}
+    .hero-logo{width:140px; filter:url(#wavy) drop-shadow(0 10px 26px rgba(0,0,0,.35)); display:block}
+    .wordmark{font-size: clamp(34px, 8vw, 72px); font-weight:900; line-height:1; margin:0}
+    .wordmark span{display:inline-block; position:relative; --g:conic-gradient(from 180deg, #ff2a2a, #6a0000, #111, #ff2a2a); background:var(--g); background-size:200% 200%;
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:swirl 6s ease-in-out infinite}
+    @keyframes swirl{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+    .sub{font-size:clamp(16px, 2.4vw, 20px); color:#1a1a1a; max-width:70ch; opacity:.9}
+    .actions{display:flex; gap:12px; flex-wrap:wrap; justify-content:center}
+    .btn{appearance:none; border:2px solid var(--accent); background:linear-gradient(#fff,#f3f3f3); color:var(--accent); padding:12px 18px; border-radius:12px; cursor:pointer; font-weight:800; text-decoration:none; transition:.25s; box-shadow:0 8px 20px rgba(200,16,46,.16)}
+    .btn:hover{background:var(--accent); color:#fff; transform:translateY(-1px)}
+
+    /* ===== INTRO OVERLAY ===== */
+    .intro{position:fixed; inset:0; display:grid; place-items:center; z-index:10; pointer-events:none}
+    .intro::before{content:""; position:absolute; inset:0; background:var(--bg);
+      -webkit-mask: radial-gradient(circle at 50% 55%, transparent 0, transparent 0, #000 0);
+              mask: radial-gradient(circle at 50% 55%, transparent 0, transparent 0, #000 0);
+      animation: open var(--speed) ease-out forwards;}
+    @keyframes open{0%{ -webkit-mask:radial-gradient(circle at 50% 55%, transparent 0, transparent 0, #000 0)}
+                    60%{ -webkit-mask:radial-gradient(circle at 50% 55%, transparent 12vmax, transparent 12vmax, #000 12vmax)}
+                    100%{ -webkit-mask:radial-gradient(circle at 50% 55%, transparent 140vmax, transparent 140vmax, #000 140vmax)} }
+
+    .intro-content{position:relative; display:grid; place-items:center; gap:16px; text-align:center; transform:translateZ(0)}
+    .intro-logo{width:min(180px, 30vw); filter:url(#wavy) drop-shadow(0 18px 46px rgba(0,0,0,.5)); animation:zoomLogo var(--speed) cubic-bezier(.2,.8,.2,1) forwards}
+    .intro-title{font-size:clamp(28px, 9vw, 120px); font-weight:900; margin:0; line-height:.95; letter-spacing:.02em; 
+      background:conic-gradient(from 180deg, #ff2a2a, #6a0000, #111, #ff2a2a); background-size:200% 200%;
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation: swirl 4.5s ease-in-out infinite, zoomTitle var(--speed) cubic-bezier(.2,.8,.2,1) forwards}
+    .intro-sheen{position:absolute; inset:0; pointer-events:none;}
+    .intro-sheen::before{content:""; position:absolute; top:-40%; left:-50%; width:60%; height:200%; background:linear-gradient(120deg, transparent 35%, rgba(255,255,255,.95) 50%, transparent 65%); transform:rotate(18deg) translateX(-140%); animation:sweep calc(var(--speed)*.8) ease-in-out infinite}
+    @keyframes sweep{0%{transform:rotate(18deg) translateX(-140%)}60%{transform:rotate(18deg) translateX(160%)}100%{transform:rotate(18deg) translateX(160%)}}
+    @keyframes zoomLogo{0%{transform:scale(1.3); opacity:0}35%{opacity:1}100%{transform:scale(.72); opacity:0}}
+    @keyframes zoomTitle{0%{transform:scale(1.1); opacity:0}35%{opacity:1}100%{transform:scale(.78); opacity:0}}
+
+    .loaded .intro{display:none}
+  </style
+
+  /* ====== HEADER + MENÚ HAMBURGUESA (mobile-first) ====== */
+.site-header{
+  position: fixed; inset: 16px 16px auto 16px; z-index: 20;
+  display:flex; align-items:center; justify-content:space-between;
+  background: transparent;
+}
+.nav-toggle{
+  display:inline-block; background:#fff; color:var(--accent);
+  border:2px solid var(--accent); border-radius:12px;
+  padding:8px 12px; font-weight:800; cursor:pointer;
+  box-shadow:0 6px 18px rgba(200,16,46,.16);
+}
+.site-nav{
+  display:none; position:absolute; top:56px; right:0;
+  background:#fff; border:2px solid var(--accent); border-radius:16px;
+  padding:10px; box-shadow:0 12px 40px rgba(0,0,0,.2);
+  flex-direction:column; gap:8px;
+}
+.site-nav.open{ display:flex; }
+@media (min-width:960px){
+  .nav-toggle{ display:none; }
+  .site-nav{
+    position:static; display:flex; flex-direction:row; gap:8px;
+    background:transparent; border:0; box-shadow:none; padding:0;
+  }
+}
+
+/* Opcional: al cargar, que el nav también tenga el fade-in que ya usa tu .topbar */
+.loaded .site-nav{ transition: opacity .5s ease .05s, transform .5s ease .05s; }

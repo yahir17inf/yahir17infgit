@@ -1,0 +1,210 @@
+/* ===== Base & layout ===== */
+:root{
+  --ink:#111827;         /* negro elegante */
+  --muted:#6b7280;       /* gris texto secundario */
+  --accent:#ef4444;      /* rojo acento (puedes cambiarlo) */
+  --bg:#ffffff;
+  --card:#f8fafc;
+  --ring: rgba(239,68,68,.25);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height:1.6;
+}
+
+/* Barra superior “ligera” (opcional) */
+.topbar{
+  position: sticky; top:0; z-index: 10;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,.7);
+  border-bottom: 1px solid #eee;
+}
+
+/* Contenedor centrado */
+.container{
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ===== Titulares & texto ===== */
+h1{
+  font-size: clamp(32px, 5vw, 44px);
+  line-height:1.15;
+  margin: 28px 0 12px;
+  letter-spacing:-.02em;
+  background: linear-gradient(180deg, var(--ink) 0%, #0b0f14 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow: 0 1px 0 rgba(0,0,0,.06);
+}
+.lead{
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 70ch;
+}
+
+/* Subtítulo de sección con línea acento */
+.section-title{
+  font-size: clamp(22px, 3.2vw, 30px);
+  margin: 36px 0 10px;
+  font-weight:800;
+  position: relative;
+}
+.section-title::after{
+  content:"";
+  display:block;
+  width: 72px; height:4px;
+  background: var(--accent);
+  border-radius: 999px;
+  margin-top: 8px;
+}
+
+/* Bloques tipo tarjeta para listas (MODALIDADES) */
+.card{
+  background: var(--card);
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 18px 20px;
+  box-shadow: 0 6px 20px rgba(2,6,23,.04);
+}
+
+/* ===== Botón Inicio “bonito” ===== */
+.btn{
+  display:inline-flex; align-items:center; gap:.6rem;
+  padding:.7rem 1.1rem;
+  font-weight:700; text-decoration:none;
+  border-radius:9999px;
+  border: 2px solid var(--accent);
+  background: linear-gradient(180deg, #fff 0%, #fdf2f2 100%);
+  box-shadow: 0 2px 0 rgba(0,0,0,.05), 0 0 0 0 var(--ring);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+  color: var(--accent);
+}
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(239,68,68,.18), 0 0 0 6px var(--ring);
+}
+.btn:active{ transform: translateY(0) scale(.99); }
+.btn:focus-visible{ outline:none; box-shadow: 0 0 0 6px var(--ring); }
+
+/* Variante “ghost” si quieres sólo contorno */
+.btn-ghost{
+  background: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ===== Tema / colores ===== */
+:root{
+  --ink:#111827;           /* texto */
+  --muted:#6b7280;
+  --accent:#e11d48;        /* acento (rosa/rojo) */
+  --bg:#fffafc;            /* fondo base con un tinte suave */
+  --bg2:#fff;              /* tarjetas/contraste */
+}
+
+/* ===== Fondo con color “bonito” (manchas suaves) ===== */
+body{
+  background:
+    radial-gradient(900px 380px at -10% 0%, #ffe1ea 0%, transparent 65%),
+    radial-gradient(800px 340px at 110% 20%, #ffe9f2 0%, transparent 65%),
+    linear-gradient(180deg, var(--bg) 0%, #fff 45%, #fef7fb 100%);
+  color: var(--ink);
+}
+
+/* Borde de acento arriba (sutil) */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #fb7185 60%, var(--accent));
+  opacity: .8;
+  z-index: 5;
+}
+
+/* Contenedor */
+.container{
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+/* Titulares */
+h1{
+  font-size: clamp(32px, 5vw, 44px);
+  margin: 36px 0 12px;
+  letter-spacing:-.02em;
+  background: linear-gradient(180deg, #0f172a 0%, #0b0f14 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+
+/* Subtítulos con barra */
+.section-title{
+  font-size: clamp(22px, 3.2vw, 30px);
+  margin: 40px 0 10px; font-weight:800; position:relative;
+}
+.section-title::after{
+  content:""; display:block; width:76px; height:4px;
+  background: var(--accent); border-radius:999px; margin-top:10px;
+}
+
+/* Tarjetas para bloques/listas */
+.card{
+  background: var(--bg2);
+  border: 1px solid #f1c7d3;
+  border-radius: 18px;
+  padding: 18px 20px;
+  box-shadow: 0 10px 24px rgba(225,29,72,.06);
+}
+
+/* ===== Botón Inicio fijo a la izquierda ===== */
+.btn-inicio{
+  position: fixed; top: 16px; left: 16px; z-index: 60;
+  display:inline-flex; align-items:center; gap:.55rem;
+  padding:.55rem 1rem; font-weight:700; text-decoration:none;
+  border-radius: 9999px;
+  border: 2px solid var(--accent);
+  background: #fff;
+  color: var(--accent);
+  box-shadow: 0 2px 0 rgba(0,0,0,.05);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn-inicio:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(225,29,72,.18);
+}
+
+/* Quita la barra antigua si la tenías */
+.topbar{ display:none !important; }
+.titulo-centrado{ text-align:center; }
+.text-left{ text-align:left; }
+
+.subtitle{ margin: 8px 0 12px; font-weight:600; color:#374151; }
+.lista-modalidades{ margin: 10px 0 14px 1.25rem; }
+.lista-modalidades li{ margin: 6px 0; }
+.subnote{ margin: 8px 0 18px; color:#6b7280; }
+/* Proyección: usar Cinzel Decorative solo aquí */
+.proyeccion-title,
+.proyeccion-subtitle{
+  font-family: "Cinzel Decorative", serif;
+  letter-spacing: .5px;
+  color: #0F172A;              /* negro elegante */
+  text-align: center;
+}
+
+.proyeccion-title{
+  font-size: clamp(28px, 5vw, 40px);
+  margin-top: 32px;
+}
+
+.proyeccion-subtitle{
+  font-size: clamp(20px, 4vw, 28px);
+  margin: 4px 0 14px;
+  font-weight: 700;
+}

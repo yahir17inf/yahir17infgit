@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Actividades Extracurriculares — CEMNG</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="actividades.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sub-header">
+    <div class="brand">
+      <img src="logo (2).png" alt="Logo CEMNG">
+      <h1>CEMNG Dionisio de Herrera</h1>
+    </div>
+    <a class="home-btn" href="index.html">🏠 Inicio</a>
+  </header>
+
+  <main class="wrap">
+    <h2 class="title">Actividades Extracurriculares</h2>
+    <p class="subtitle">
+      Vida estudiantil que inspira: celebraciones, viajes, ferias, cultura y servicio.
+    </p>
+
+    <!-- Filtros -->
+    <div class="filters" id="filters">
+      <button class="chip is-active" data-filter="all">Todas</button>
+      <button class="chip" data-filter="celebraciones">Celebraciones</button>
+      <button class="chip" data-filter="viajes">Viajes</button>
+      <button class="chip" data-filter="cultura">Cultura</button>
+      <button class="chip" data-filter="ferias">Ferias</button>
+      <button class="chip" data-filter="solidaridad">Solidaridad</button>
+      <button class="chip" data-filter="conciencia">Conciencia</button>
+    </div>
+
+    <!-- Galería -->
+    <section class="gallery" id="gallery">
+
+      <!-- Color Day -->
+      <article class="card" data-cat="celebraciones">
+        <a href="#img-color-day" class="thumb">
+          <img src="color-day.jpeg" alt="Color Day">
+          <span class="overlay">
+            <span class="kicker">Celebración</span>
+            <span class="name">Color Day</span>
+            <span class="desc">Jornada alegre para fortalecer la convivencia y el sentido de pertenencia.</span>
+          </span>
+        </a>
+        <h3>Color Day</h3>
+        <p>Día temático de colores: creatividad, compañerismo y diversión responsables.</p>
+      </article>
+
+      <!-- Códigos de vestimenta -->
+      <article class="card" data-cat="celebraciones">
+        <a href="#img-codigos" class="thumb">
+          <img src="codigos-vestimenta.jpeg" alt="Códigos de vestimenta">
+          <span class="overlay">
+            <span class="kicker">Avisos</span>
+            <span class="name">Códigos de Vestimenta</span>
+            <span class="desc">Lineamientos especiales para días temáticos y actividades.</span>
+          </span>
+        </a>
+        <h3>Códigos de Vestimenta</h3>
+        <p>Comunicación de normas en fechas especiales como Color Day o jornadas cívicas.</p>
+      </article>
+
+      <!-- Movie Day (viaje) -->
+      <article class="card" data-cat="viajes">
+        <a href="#img-movie" class="thumb">
+          <img src="movie-day.jpeg" alt="Movie Day">
+          <span class="overlay">
+            <span class="kicker">Viaje</span>
+            <span class="name">Movie Day</span>
+            <span class="desc">Salida al cine: convivencia, transporte, palomitas y aprendizaje fuera del aula.</span>
+          </span>
+        </a>
+        <h3>Movie Day</h3>
+        <p>Experiencia cinematográfica en cadena comercial, con logística completa para el grupo.</p>
+      </article>
+
+      <!-- Villamar Park (viaje) -->
+      <article class="card" data-cat="viajes">
+        <a href="#img-villamar" class="thumb">
+          <img src="villamar-park.jpeg" alt="Villamar Park">
+          <span class="overlay">
+            <span class="kicker">Viaje</span>
+            <span class="name">Villamar Park</span>
+            <span class="desc">Aventura acuática con alimentación, transporte y entrada incluida.</span>
+          </span>
+        </a>
+        <h3>Villamar Park</h3>
+        <p>Actividades de integración, recreación y trabajo en equipo en un entorno seguro.</p>
+      </article>
+
+      <!-- Feria Vocacional UNAH -->
+      <article class="card" data-cat="ferias">
+        <a href="#img-feria" class="thumb">
+          <img src="feria-vocacional.jpeg" alt="Feria Vocacional UNAH">
+          <span class="overlay">
+            <span class="kicker">Ferias</span>
+            <span class="name">Feria Vocacional UNAH</span>
+            <span class="desc">Exploración de carreras universitarias y orientación para décimo a duodécimo.</span>
+          </span>
+        </a>
+        <h3>Feria Vocacional UNAH</h3>
+        <p>Participación activa para conocer opciones académicas y tomar mejores decisiones.</p>
+      </article>
+
+      <!-- Donación de una plantita -->
+      <article class="card" data-cat="solidaridad">
+        <a href="#img-plantita" class="thumb">
+          <img src="donacion-plantita.jpeg" alt="Donación de una plantita">
+          <span class="overlay">
+            <span class="kicker">Solidaridad</span>
+            <span class="name">Donación de Plantitas</span>
+            <span class="desc">Iniciativa de vivero escolar para cuidar juntos nuestro ecosistema.</span>
+          </span>
+        </a>
+        <h3>Donación de Plantitas</h3>
+        <p>Todo aporte suma: sembramos valores y responsabilidad ambiental.</p>
+      </article>
+
+      <!-- Día del Síndrome de Down -->
+      <article class="card" data-cat="conciencia">
+        <a href="#img-down" class="thumb">
+          <img src="sindrome-down.jpeg" alt="Día Mundial del Síndrome de Down">
+          <span class="overlay">
+            <span class="kicker">Conciencia</span>
+            <span class="name">Día del Síndrome de Down</span>
+            <span class="desc">Jornada de sensibilización, inclusión y respeto a la diversidad.</span>
+          </span>
+        </a>
+        <h3>Día Mundial del Síndrome de Down</h3>
+        <p>Promovemos la inclusión con actividades y mensajes significativos.</p>
+      </article>
+
+      <!-- Día del Árbol / Día del Indio (Cultura y Naturaleza) -->
+      <article class="card" data-cat="cultura">
+        <a href="#img-arbol" class="thumb">
+          <img src="dia-del-arbol.jpeg" alt="Día del Árbol / Cultura">
+          <span class="overlay">
+            <span class="kicker">Cultura</span>
+            <span class="name">Día del Árbol</span>
+            <span class="desc">Celebramos y sembramos: educación ambiental y amor por la tierra.</span>
+          </span>
+        </a>
+        <h3>Día del Árbol</h3>
+        <p>Charlas, siembras y reflexión sobre el cuidado de los recursos naturales.</p>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Lightbox (CSS puro con :target) -->
+  <div class="lightbox" id="img-color-day"><a class="close" href="#"></a><img src="color-day.jpeg" alt=""></div>
+  <div class="lightbox" id="img-codigos"><a class="close" href="#"></a><img src="codigos-vestimenta.jpeg" alt=""></div>
+  <div class="lightbox" id="img-movie"><a class="close" href="#"></a><img src="movie-day.jpeg" alt=""></div>
+  <div class="lightbox" id="img-villamar"><a class="close" href="#"></a><img src="villamar-park.jpeg" alt=""></div>
+  <div class="lightbox" id="img-feria"><a class="close" href="#"></a><img src="feria-vocacional.jpeg" alt=""></div>
+  <div class="lightbox" id="img-plantita"><a class="close" href="#"></a><img src="donacion-plantita.jpeg" alt=""></div>
+  <div class="lightbox" id="img-down"><a class="close" href="#"></a><img src="sindrome-down.jpeg" alt=""></div>
+  <div class="lightbox" id="img-arbol"><a class="close" href="#"></a><img src="dia-del-arbol.jpeg" alt=""></div>
+
+  <footer class="foot">
+    <p>© 2025 Instituto CEMNG Dionisio de Herrera</p>
+  </footer>
+
+  <!-- Filtro (mini JS) -->
+  <script>
+    const chips = document.querySelectorAll('.chip');
+    const cards = document.querySelectorAll('.card');
+    chips.forEach(ch => ch.addEventListener('click', () => {
+      chips.forEach(c=>c.classList.remove('is-active'));
+      ch.classList.add('is-active');
+      const f = ch.dataset.filter;
+      cards.forEach(card=>{
+        card.style.display = (f==='all' || card.dataset.cat.includes(f)) ? '' : 'none';
+      });
+    }));
+  </script>
+</body>
+</html>

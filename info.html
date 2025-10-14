@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Información General — CEMNG Dionisio de Herrera</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CSS de esta página -->
+  <link rel="stylesheet" href="info.css">
+</head>
+<body>
+
+  <!-- Fondo y partículas -->
+  <div class="bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="noise"></div>
+  </div>
+
+  <!-- Header: logo izq, inicio der -->
+  <header class="sub-header"> 
+    <a href="index.html" class="home-btn">🏠 Inicio</a>
+    <div class="brand">
+      <img src="logo (2).png" alt="Logo CEMNG">
+      <span class="brand-name">CEMNG • Instituto Dionisio de Herrera</span>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="hero-title">Información General</h1>
+    <p class="hero-sub">Conoce un poco sobre el proposito del CEMNG DIONISIO DE HERRERA </p>
+  </section>
+
+  <main class="container">
+
+    <!-- Quiénes somos -->
+    <section class="card reveal">
+      <h2>¿Quiénes Somos?</h2>
+      <p>
+        El <strong>Instituto C.E.M.N.G. Dionisio de Herrera</strong> es una institución educativa
+        comprometida con la formación integral de jóvenes hondureños, promoviendo los valores de
+        <em>disciplina, respeto, responsabilidad, perseverancia y solidaridad</em>. Nuestro objetivo es
+        brindar una <strong>educación de calidad</strong> basada en principios éticos, espirituales y académicos,
+        preparando a nuestros estudiantes para los retos del mundo actual.
+      </p>
+    </section>
+
+    <!-- Propósito -->
+    <section class="card reveal">
+      <h2>Propósito</h2>
+      <p>
+        Ofrecer una formación integral que desarrolle el pensamiento crítico, las competencias técnicas
+        y el crecimiento humano; impulsando el <strong>amor al estudio</strong>, la <strong>responsabilidad</strong> y el
+        <strong>servicio</strong> a la comunidad.
+      </p>
+    </section>
+
+    
+    <!-- Objetivos -->
+    <section class="card reveal">
+      <h2>Objetivos Institucionales</h2>
+      <ul class="pretty">
+        <li>Fortalecer competencias científicas, humanísticas y tecnológicas.</li>
+        <li>Desarrollar hábitos de estudio, trabajo colaborativo y liderazgo.</li>
+        <li>Vincular el aprendizaje con la vida real y el servicio a la comunidad.</li>
+        <li>Impulsar la excelencia académica con valores y disciplina.</li>
+      </ul>
+    </section>
+
+    
+    <!-- Valores -->
+    <section class="card reveal">
+      <h2>Valores Institucionales</h2>
+      <div class="chips">
+        <span class="chip">Disciplina</span>
+        <span class="chip">Respeto</span>
+        <span class="chip">Responsabilidad</span>
+        <span class="chip">Perseverancia</span>
+        <span class="chip">Solidaridad</span>
+      </div>
+    </section>
+
+    <!-- Autoridades -->
+    <section class="card reveal">
+      <h2>Autoridades</h2>
+      <div class="grid people">
+        <div class="person">
+          <div class="avatar">R</div>
+          <div>
+            <div class="name">Rectora</div>
+            <div class="role">Lcda. Michelle Ortega</div>
+          </div>
+        </div>
+        <div class="person">
+          <div class="avatar">D</div>
+          <div>
+            <div class="name">Director </div>
+            <div class="role">Lic. Juan Carlos Castillo</div>
+          </div>
+        </div>
+        <div class="person">
+          <div class="avatar">S</div>
+          <div>
+            <div class="name">Subdirector</div>
+            <div class="role">Lic. Daniel Barrientos</div>
+          </div>
+        </div>
+        <div class="person">
+          <div class="avatar">S</div>
+          <div>
+           <div class="name">Secretaria</div>
+            <div class="role">Lcda. Mariela Martinez</div>
+          </div>
+        </div>
+      </div>
+      <div class="person">
+          <div class="avatar">O</div>
+          <div>
+           <div class="name">Orientación y Psicología</div>
+            <div class="role">Lcda. Geomar Pavon</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Horarios -->
+    <section class="card reveal">
+      <h2>Horarios</h2>
+      <div class="grid schedule">
+        <div class="slot">
+          <div class="tag">Matutina</div>
+          <div class="time">8:00 A.M. – 1:00 P.M.</div>
+        </div>
+        <div class="slot">
+          <div class="tag">Distancia</div>
+          <div class="time">11:00 A.M. – 3:00 P.M.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer simple -->
+  <footer class="foot">
+    <span>CEMNG Dionisio de Herrera</span>
+  </footer>
+
+  <!-- Accesibilidad: si el user prefiere menos animación, reducimos -->
+  <script>
+    // Reveal on scroll (suave)
+    const items = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold: .12});
+    items.forEach(i=> io.observe(i));
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CEMNG Instituto Dionisio de Herrera</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg"></div>
+
+  <!-- NAV -->
+  <div class="actions">
+  < <nav class="topbar">
+  a class="btn" href="carreras.html">Ver Carreras</a>
+  <a class="btn" href="#" data-open="info">Información del Colegio</a>
+  <a class="btn" href="actividades.html">Actividades</a>
+</div>
+  </nav>
+
+  <!-- INTRO -->
+  <section class="intro" aria-hidden="true">
+    <div class="intro-content">
+      <img class="intro-logo" src="logo (2).png" alt="Logo CEMNG"/>
+      <h1 class="intro-title">CEMNG<br>DIONISIO DE HERRERA</h1>
+      <div class="intro-sheen"></div>
+    </div>
+  </section>
+
+  <!-- HERO -->
+  <main class="hero" aria-label="CEMNG Dionisio de Herrera">
+    <section class="hero-inner">
+      <img class="hero-logo" src="logo (2).png" alt="Logo CEMNG"/>
+      <h2 class="wordmark"><span>CEMNG Dionisio de Herrera</span></h2>
+      <p class="sub">Formamos ciudadanos íntegros con valores, ciencia y tecnología.</p>
+      <div class="actions">
+        <a class="btn" href="carreras.html">Ver Carreras</a>
+        <!-- IMPORTANTE: ya no usamos href="#" ni data-open -->
+        <a class="btn" href="info.html" data-modal="info">Información del Colegio</a>
+        <a class="btn" href="actividades.html">Actividades</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL INFORMACIÓN (solo existe en el INICIO) -->
+  <section class="modal" id="infoModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+      <div class="sheet-header">
+        <div class="badge">ℹ️ Informacion</div>
+        <button class="close" data-close>✕</button>
+      </div>
+      <div class="searchbar">
+        <input id="query" type="search" placeholder="Buscar: carreras, actividades, historia, reglamento, contacto…" />
+      </div>
+      <div class="chips">
+        <button class="chip" data-tag="carreras">Carreras</button>
+        <button class="chip" data-tag="actividades">Actividades</button>
+        <button class="chip" data-tag="historia">Historia</button>
+        <button class="chip" data-tag="perfiles">Perfiles</button>
+        <button class="chip" data-tag="contacto">Contacto</button>
+      </div>
+      <div class="results" id="results" role="listbox"></div>
+    </div>
+  </section>
+
+  <!-- Filtro SVG -->
+  <svg width="0" height="0" style="position:absolute">
+    <filter id="wavy">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01 0.02" numOctaves="2" seed="3" result="noise">
+        <animate attributeName="baseFrequency" dur="6s" values="0.01 0.02; 0.02 0.03; 0.01 0.02" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R" yChannelSelector="G">
+        <animate attributeName="scale" dur="6s" values="8;14;8" repeatCount="indefinite"/>
+      </feDisplacementMap>
+    </filter>
+  </svg>
+
+  <script src="script.js"></script>
+</body>
+</html>9*
+.ndsnsnnns42120.024\[7
+66566666+6666666666666666666699999999999999999999999999999999999999999999
+]
