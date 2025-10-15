@@ -8,7 +8,88 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="pagina web prueba.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-  </head>
+  <style>
+    :root{ --fg:#0a0a0a; --bg:#ffffff; --accent:#c8102e; --ink:#111; --speed: 2.8s; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:Inter, system-ui, Segoe UI, Roboto, Arial; color:var(--fg); background:var(--bg);}    
+
+    /* ===== BACKGROUND ===== */
+    .bg{position:fixed; inset:0; z-index:0; overflow:hidden; background:
+      radial-gradient(1000px 480px at 12% -8%, rgba(200,16,46,.14) 0%, transparent 60%),
+      radial-gradient(900px 520px at 110% 8%, rgba(0,0,0,.16) 0%, transparent 60%),
+      var(--bg);
+    }
+
+    /* ===== TOP NAV ===== */
+    .topbar{position:fixed; right:16px; top:16px; display:flex; gap:8px; z-index:5; opacity:0; pointer-events:none; transform:translateY(8px)}
+    .loaded .topbar{opacity:1; pointer-events:auto; transform:translateY(0); transition:opacity .5s ease .05s, transform .5s ease .05s}
+    .topbar a{font-weight:700; color:var(--ink); text-decoration:none; border:2px solid var(--accent); border-radius:999px; padding:8px 12px; background:#fff; transition:.25s}
+    .topbar a:hover{background:var(--accent); color:#fff}
+
+    /* ===== HERO (contenido final) ===== */
+    .hero{min-height:100svh; display:grid; place-items:center; padding:120px 20px 56px; position:relative; z-index:1; opacity:0; pointer-events:none; transform:translateY(8px)}
+    .loaded .hero{opacity:1; pointer-events:auto; transform:translateY(0); transition:opacity .5s ease .05s, transform .5s ease .05s}
+    .hero-inner{width:min(1120px, 92vw); display:grid; justify-items:center; text-align:center; gap:22px}
+    .hero-logo{width:140px; filter:url(#wavy) drop-shadow(0 10px 26px rgba(0,0,0,.35)); display:block}
+    .wordmark{font-size: clamp(34px, 8vw, 72px); font-weight:900; line-height:1; margin:0}
+    .wordmark span{display:inline-block; position:relative; --g:conic-gradient(from 180deg, #ff2a2a, #6a0000, #111, #ff2a2a); background:var(--g); background-size:200% 200%;
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:swirl 6s ease-in-out infinite}
+    @keyframes swirl{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+    .sub{font-size:clamp(16px, 2.4vw, 20px); color:#1a1a1a; max-width:70ch; opacity:.9}
+    .actions{display:flex; gap:12px; flex-wrap:wrap; justify-content:center}
+    .btn{appearance:none; border:2px solid var(--accent); background:linear-gradient(#fff,#f3f3f3); color:var(--accent); padding:12px 18px; border-radius:12px; cursor:pointer; font-weight:800; text-decoration:none; transition:.25s; box-shadow:0 8px 20px rgba(200,16,46,.16)}
+    .btn:hover{background:var(--accent); color:#fff; transform:translateY(-1px)}
+
+    /* ===== INTRO OVERLAY ===== */
+    .intro{position:fixed; inset:0; display:grid; place-items:center; z-index:10; pointer-events:none}
+    .intro::before{content:""; position:absolute; inset:0; background:var(--bg);
+      -webkit-mask: radial-gradient(circle at 50% 55%, transparent 0, transparent 0, #000 0);
+              mask: radial-gradient(circle at 50% 55%, transparent 0, transparent 0, #000 0);
+      animation: open var(--speed) ease-out forwards;}
+    @keyframes open{0%{ -webkit-mask:radial-gradient(circle at 50% 55%, transparent 0, transparent 0, #000 0)}
+                    60%{ -webkit-mask:radial-gradient(circle at 50% 55%, transparent 12vmax, transparent 12vmax, #000 12vmax)}
+                    100%{ -webkit-mask:radial-gradient(circle at 50% 55%, transparent 140vmax, transparent 140vmax, #000 140vmax)} }
+
+    .intro-content{position:relative; display:grid; place-items:center; gap:16px; text-align:center; transform:translateZ(0)}
+    .intro-logo{width:min(180px, 30vw); filter:url(#wavy) drop-shadow(0 18px 46px rgba(0,0,0,.5)); animation:zoomLogo var(--speed) cubic-bezier(.2,.8,.2,1) forwards}
+    .intro-title{font-size:clamp(28px, 9vw, 120px); font-weight:900; margin:0; line-height:.95; letter-spacing:.02em; 
+      background:conic-gradient(from 180deg, #ff2a2a, #6a0000, #111, #ff2a2a); background-size:200% 200%;
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation: swirl 4.5s ease-in-out infinite, zoomTitle var(--speed) cubic-bezier(.2,.8,.2,1) forwards}
+    .intro-sheen{position:absolute; inset:0; pointer-events:none;}
+    .intro-sheen::before{content:""; position:absolute; top:-40%; left:-50%; width:60%; height:200%; background:linear-gradient(120deg, transparent 35%, rgba(255,255,255,.95) 50%, transparent 65%); transform:rotate(18deg) translateX(-140%); animation:sweep calc(var(--speed)*.8) ease-in-out infinite}
+    @keyframes sweep{0%{transform:rotate(18deg) translateX(-140%)}60%{transform:rotate(18deg) translateX(160%)}100%{transform:rotate(18deg) translateX(160%)}}
+    @keyframes zoomLogo{0%{transform:scale(1.3); opacity:0}35%{opacity:1}100%{transform:scale(.72); opacity:0}}
+    @keyframes zoomTitle{0%{transform:scale(1.1); opacity:0}35%{opacity:1}100%{transform:scale(.78); opacity:0}}
+
+    .loaded .intro{display:none}
+      /* ===== ESCONDER CONTENIDO HASTA QUE TERMINE EL INTRO ===== */
+    .topbar, .hero { opacity:0; pointer-events:none; transform:translateY(8px) }
+    .loaded .topbar, .loaded .hero { opacity:1; pointer-events:auto; transform:translateY(0); transition:opacity .5s ease .05s, transform .5s ease .05s }
+
+    /* ===== MODAL "INFORMACIÓN" ===== */
+    .modal{position:fixed; inset:0; z-index:30; display:none;}
+    .modal.open{display:grid; place-items:center}
+    .modal-backdrop{position:absolute; inset:0; background:rgba(0,0,0,.55); backdrop-filter: blur(4px)}
+    .sheet{position:relative; z-index:1; width:min(900px,92vw); border:2px solid var(--accent); border-radius:20px; background:#fff; box-shadow:0 30px 80px rgba(0,0,0,.35); overflow:hidden}
+    .sheet-header{display:flex; align-items:center; gap:10px; padding:14px 16px; border-bottom:1px solid #eee}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:#fff0f2; color:var(--accent); border:1px solid var(--accent); font-weight:800}
+    .close{margin-left:auto; border:0; background:#fff; padding:8px 10px; border-radius:10px; font-weight:800; cursor:pointer; border:1px solid #eee}
+
+    .searchbar{display:flex; align-items:center; gap:10px; padding:14px 16px}
+    .searchbar input{flex:1; padding:12px 14px; border:2px solid var(--accent); border-radius:12px; font-size:16px}
+
+    .chips{display:flex; gap:8px; padding:0 16px 14px; flex-wrap:wrap}
+    .chip{border:1px solid #ddd; background:#f7f7f7; padding:8px 12px; border-radius:999px; cursor:pointer; font-weight:700}
+    .chip:hover{border-color:var(--accent)}
+
+    .results{max-height:50vh; overflow:auto; border-top:1px solid #f0f0f0}
+    .item{display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:1px solid #f2f2f2; text-decoration:none; color:#111}
+    .item:hover{background:#fff5f6}
+    .icon{width:28px; height:28px; border-radius:8px; background:#ffedf0; display:grid; place-items:center; font-weight:900; color:var(--accent)}
+    .meta{font-size:12px; color:#666}
+  </style>
+</head>
 <body>
   <div class="bg"></div>
 
@@ -87,6 +168,65 @@
 
  <script src="script.js" defer></script>
 
-   </body>
-</html>
+    // ====== Intro timing (igual que antes) ======
+    window.addEventListener('load', () => {
+      setTimeout(()=>{
+        document.documentElement.classList.add('loaded');
+        document.body.style.overflow = 'auto';
+      }, 2800);
+    });
 
+    // ====== Modal Información ======
+    const modal = document.getElementById('infoModal');
+    const openers = document.querySelectorAll('[data-open="info"]');
+    const closers = modal.querySelectorAll('[data-close]');
+    const query = document.getElementById('query');
+    const results = document.getElementById('results');
+
+    const data = [
+      { title:'Historia del Instituto', meta:'Historia', href:'historia.html', tags:['historia','instituto','trayectoria'] },
+      { title:'Información General', meta:'Colegio', href:'info.html', tags:['información','colegio','admisión','horarios','ubicación','contacto'] },
+      { title:'Dionisio de Herrera', meta:'Biografía', href:'dionisio.html', tags:['dionisio','biografía','historia'] },
+      { title:'Actividades Extracurriculares', meta:'Vida estudiantil', href:'actividades.html', tags:['actividades','deportes','arte','clubes','stem'] },
+      { title:'Carreras y Modalidades', meta:'Oferta académica', href:'oferta.html', tags:['carreras','técnico','bachillerato','contabilidad','informática'] },
+      { title:'Perfiles del Estudiante (Básica y Media)', meta:'Perfiles', href:'perfiles.html', tags:['perfiles','básica','media','competencias'] },
+      { title:'Contacto y Ubicación', meta:'Contacto', href:'contacto.html', tags:['contacto','ubicación','teléfono','correo'] }
+    ];
+
+    function render(list){
+      results.innerHTML = list.map(item=>`
+        <a class="item" href="${item.href}">
+          <div class="icon">${item.meta[0].toUpperCase()}</div>
+          <div>
+            <div class="title">${item.title}</div>
+            <div class="meta">${item.meta}</div>
+          </div>
+        </a>`).join('');
+    }
+
+    function open(){ modal.classList.add('open'); render(data); query.value=''; setTimeout(()=>query.focus(),0); }
+    function close(){ modal.classList.remove('open'); }
+
+    openers.forEach(btn=> btn.addEventListener('click', (e)=>{ e.preventDefault(); open(); }));
+    closers.forEach(btn=> btn.addEventListener('click', close));
+    modal.addEventListener('click', (e)=>{ if(e.target.closest('[data-close]')|| e.target.classList.contains('modal-backdrop')) close(); });
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal.classList.contains('open')) close(); });
+
+    function search(q){
+      const s = q.trim().toLowerCase();
+      if(!s) return data;
+      return data.filter(item =>
+        item.title.toLowerCase().includes(s) ||
+        item.meta.toLowerCase().includes(s) ||
+        item.tags.some(t => t.includes(s))
+      );
+    }
+
+    query.addEventListener('input', () => render(search(query.value)));
+    document.querySelectorAll('.chip').forEach(ch => ch.addEventListener('click', ()=>{ query.value = ch.dataset.tag; render(search(query.value)); query.focus(); }));
+
+    // primera carga de resultados por si el usuario abre y no escribe
+    render(data);
+  </script>
+</body>
+</html>
